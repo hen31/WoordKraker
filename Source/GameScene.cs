@@ -156,11 +156,13 @@ public partial class GameScene : Control
                 EnterPressed();
                 return;
             }
+
             if (eventKey.Keycode == Key.Backspace)
             {
                 VirtualKeyPressed("del");
                 return;
             }
+
             var text = eventKey.AsTextKeyLabel();
             if (text.Length == 1 && Regex.IsMatch(text, "[a-z]", RegexOptions.IgnoreCase))
             {

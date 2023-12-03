@@ -14,7 +14,7 @@ config/name="WoordKraker"
 run/main_scene="res://Menu.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 boot_splash/show_image=false
-config/icon="res://Images/icon.svg"
+config/icon="res://Images/icon.png"
 
 [display]
 
