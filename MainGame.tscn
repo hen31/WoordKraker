@@ -1,0 +1,280 @@
+[gd_scene load_steps=17 format=3 uid="uid://cmucbhlfl4evh"]
+
+[ext_resource type="Script" path="res://Source/GameScene.cs" id="1_fryl3"]
+[ext_resource type="PackedScene" uid="uid://cv77yultq4p8x" path="res://word_attempt.tscn" id="2_s6w61"]
+[ext_resource type="StyleBox" uid="uid://pp4erlvb0l7c" path="res://Styleboxes/Selected.stylebox" id="3_irsm3"]
+[ext_resource type="Script" path="res://Source/VirtualKeyBoard.cs" id="3_jfpew"]
+[ext_resource type="StyleBox" uid="uid://wdr2ydvf44hp" path="res://Styleboxes/RightLetter.stylebox" id="3_vne12"]
+[ext_resource type="StyleBox" uid="uid://cts83mgrwh1gt" path="res://Styleboxes/PossibleLetter.stylebox" id="4_lpn2r"]
+[ext_resource type="StyleBox" uid="uid://c1srqoe13jsyx" path="res://Styleboxes/OpenLetter.stylebox" id="5_clkyx"]
+[ext_resource type="StyleBox" uid="uid://biopftv7v8e5a" path="res://Styleboxes/HadLetter.stylebox" id="6_d6ye8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iiw1n"]
+content_margin_left = 0.0
+content_margin_top = 8.0
+content_margin_right = 0.0
+content_margin_bottom = 8.0
+
+[sub_resource type="SystemFont" id="SystemFont_e0quy"]
+font_names = PackedStringArray("Sans-Serif")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3qd2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6lmh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylxng"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyu1b"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asevk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_8sl33"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 48
+Button/fonts/font = SubResource("SystemFont_e0quy")
+Button/styles/disabled = SubResource("StyleBoxFlat_w3qd2")
+Button/styles/focus = SubResource("StyleBoxFlat_r6lmh")
+Button/styles/hover = SubResource("StyleBoxFlat_ylxng")
+Button/styles/normal = SubResource("StyleBoxFlat_kyu1b")
+Button/styles/pressed = SubResource("StyleBoxFlat_asevk")
+
+[node name="MainGame" type="Control" node_paths=PackedStringArray("Attempts", "KeyBoard", "NoWordScreen", "EndScreen", "EndLabel", "WordsLabel", "HighScoreLabel", "TimeLabel", "EndButton", "EnterButton", "BackButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_fryl3")
+Attempts = [NodePath("PanelContainer/VBoxContainer/AttemptBox"), NodePath("PanelContainer/VBoxContainer/AttemptBox2"), NodePath("PanelContainer/VBoxContainer/AttemptBox3"), NodePath("PanelContainer/VBoxContainer/AttemptBox4"), NodePath("PanelContainer/VBoxContainer/AttemptBox5"), NodePath("PanelContainer/VBoxContainer/AttemptBox6")]
+KeyBoard = NodePath("PanelContainer/VBoxContainer/HBoxContainer2/VirtualKeyboard")
+NoWordScreen = NodePath("WordNotExists")
+EndScreen = NodePath("WordEndScreen")
+EndLabel = NodePath("WordEndScreen/VBoxContainer/SentenceOne")
+WordsLabel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Label")
+HighScoreLabel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Label3")
+TimeLabel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/Label2")
+EndButton = NodePath("WordEndScreen/VBoxContainer/Button")
+EnterButton = NodePath("PanelContainer/VBoxContainer/Button")
+BackButton = NodePath("PanelContainer/VBoxContainer/Button2")
+SelectionStyleBox = ExtResource("3_irsm3")
+RightPlaceStyleBox = ExtResource("3_vne12")
+RightWrongPlaceStyleBox = ExtResource("4_lpn2r")
+NormalLetterStyleBox = ExtResource("5_clkyx")
+HadLetterStyleBox = ExtResource("6_d6ye8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_iiw1n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Terug"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "00:00"
+
+[node name="Control4" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Hoogste score: 1000"
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "10/0"
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="AttemptBox" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_s6w61")]
+layout_mode = 2
+
+[node name="AttemptBox2" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_s6w61")]
+layout_mode = 2
+
+[node name="AttemptBox3" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_s6w61")]
+layout_mode = 2
+
+[node name="AttemptBox4" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_s6w61")]
+layout_mode = 2
+
+[node name="AttemptBox5" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_s6w61")]
+layout_mode = 2
+
+[node name="AttemptBox6" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_s6w61")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Enter"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VirtualKeyboard" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_8sl33")
+script = ExtResource("3_jfpew")
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WordEndScreen" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WordEndScreen"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SentenceOne" type="Label" parent="WordEndScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "U heeft het woord geraden het was KRUIP"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="WordEndScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Volgende woord"
+
+[node name="WordNotExists" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="WordNotExists"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Woord bestaat niet"
+
+[connection signal="VirtualKeyPressed" from="PanelContainer/VBoxContainer/HBoxContainer2/VirtualKeyboard" to="." method="VirtualKeyPressed"]

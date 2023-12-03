@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv77yultq4p8x"]
+
+[ext_resource type="Script" path="res://Source/AttemptUI.cs" id="1_6wyt2"]
+[ext_resource type="PackedScene" uid="uid://s50ymd4oamky" path="res://letter_box.tscn" id="1_twoof"]
+
+[node name="AttemptBox" type="HBoxContainer" node_paths=PackedStringArray("LetterBoxes")]
+size_flags_vertical = 3
+script = ExtResource("1_6wyt2")
+LetterBoxes = [NodePath("LetterBox"), NodePath("LetterBox2"), NodePath("LetterBox3"), NodePath("LetterBox4"), NodePath("LetterBox5")]
+
+[node name="LetterBox" parent="." instance=ExtResource("1_twoof")]
+layout_mode = 2
+
+[node name="LetterBox2" parent="." instance=ExtResource("1_twoof")]
+layout_mode = 2
+
+[node name="LetterBox3" parent="." instance=ExtResource("1_twoof")]
+layout_mode = 2
+
+[node name="LetterBox4" parent="." instance=ExtResource("1_twoof")]
+layout_mode = 2
+
+[node name="LetterBox5" parent="." instance=ExtResource("1_twoof")]
+layout_mode = 2
